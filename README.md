@@ -38,4 +38,4 @@ The next meaningful milestone is a narrow, controlled evaluation: collect permit
 
 ## Access
 
-The full code and data repository is private while source-data redistribution rights and research claims are reviewed. This showcase contains research documentation and the recorded demo only. Contact the project owner for a walkthrough or research collaboration.
+The [open-source FlavorBench Collector](https://github.com/praxindice-code/FlavorBench-collector) provides the local cooking-video annotation UI, JSON schema, validation, and event evaluation tools, with a synthetic example. The broader sensory prediction code and source datasets remain private while redistribution rights and research claims are reviewed. Contact the project owner for a walkthrough or research collaboration.
