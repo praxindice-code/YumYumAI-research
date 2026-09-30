@@ -6,7 +6,10 @@ This repository presents the research direction and current prototype. The imple
 
 ## Recorded demo
 
-[Watch the Flavor Bench research workbench demo](media/FlavorBenchShowcase1.mp4). The recording shows the local prototype; it is a product demonstration, not a sensory-validation result.
+- [First research workbench demo](media/FlavorBenchShowcase1.mp4)
+- [Second research workbench demo](media/FlavorBenchShowcase2.mp4)
+
+These recordings show the local prototype; they are product demonstrations, not sensory-validation results.
 
 ## Research question
 
