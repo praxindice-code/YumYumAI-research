@@ -1,4 +1,4 @@
-# YumYumAI: predicting how food processing changes flavor
+# YumY: predicting how food processing changes flavor
 
 I'm building a model that predicts how cooking and processing change a food's chemistry and, eventually, its taste.
 
@@ -19,7 +19,7 @@ seeds and a configuration fixed before seeing results.
 
 *Figure 1. (a) Error on held-out extreme brew settings. Grey points are individual held-out units (30); dots and bars
 are the mean and 95% bootstrap CI over units. (b) Per-unit paired difference against the best baseline; blue units
-favour YumYumAI. Shaded band: 95% bootstrap CI of the mean difference. Units share underlying conditions, so these
+favour YumY. Shaded band: 95% bootstrap CI of the mean difference. Units share underlying conditions, so these
 intervals are approximate and likely too narrow.*
 
 | Model | Error on unseen settings (log-concentration MAE, lower is better) |
@@ -28,9 +28,11 @@ intervals are approximate and likely too narrow.*
 | Two-stage kinetic curve | .121 |
 | Generic neural net (MLP) | .123 |
 | Generic sequence model (GRU) | .124 |
-| **YumYumAI** | **.100** |
+| **YumY** | **.100** |
 
-- YumYumAI beats the best alternative on **24 of 30** held-out units. The 30 units are built from only 15
+- Physics-based curves (.124, .121) and generic machine learning (.123, .124) do equally poorly on settings outside
+  the training range. YumY is the only model that holds up, beating the peer-reviewed model published with the data.
+- YumY beats the best alternative on **24 of 30** held-out units. The 30 units are built from only 15
   underlying conditions (one condition can sit at the extreme of several factors), so they are not independent and we
   do not report a p-value for this comparison.
 - On total dissolved solids the error drops by about half (.108 vs .206 for the two-stage curve).
@@ -50,7 +52,7 @@ consumer taste ratings. Each whole condition is held out in turn.
 
 - Predicted brew strength (TDS) matches a free linear regression (.091 vs .090 MAE). It beats the industry
   constant-yield brewing control chart (.174; p = .008).
-- On consumer bitterness, YumYumAI ties a direct regression (.102 vs .104), both well ahead of predicting the mean (.122).
+- On consumer bitterness, YumY ties a direct regression (.102 vs .104), both well ahead of predicting the mean (.122).
 
 ![Drip coffee](charts/fig3_drip_coffee.png)
 
