@@ -19,7 +19,8 @@ seeds and a configuration fixed before seeing results.
 
 *Figure 1. (a) Error on held-out extreme brew settings. Grey points are individual held-out units (30); dots and bars
 are the mean and 95% bootstrap CI over units. (b) Per-unit paired difference against the best baseline; blue units
-favour YumYumAI. Shaded band: 95% CI of the mean difference.*
+favour YumYumAI. Shaded band: 95% bootstrap CI of the mean difference. Units share underlying conditions, so these
+intervals are approximate and likely too narrow.*
 
 | Model | Error on unseen settings (log-concentration MAE, lower is better) |
 |---|---|
@@ -29,7 +30,9 @@ favour YumYumAI. Shaded band: 95% CI of the mean difference.*
 | Generic sequence model (GRU) | .124 |
 | **YumYumAI** | **.100** |
 
-- YumYumAI beats the best alternative on **24 of 30** held-out units (paired sign-flip test, p = .007).
+- YumYumAI beats the best alternative on **24 of 30** held-out units. The 30 units are built from only 15
+  underlying conditions (one condition can sit at the extreme of several factors), so they are not independent and we
+  do not report a p-value for this comparison.
 - On total dissolved solids the error drops by about half (.108 vs .206 for the two-stage curve).
 
 On conditions *inside* the training range, every flexible model (including ours) ties at about .076–.079. Being
@@ -72,7 +75,8 @@ still make because tasters disagree (in-sample estimate; individual conditions c
 ## Evaluation practice
 
 - Whole conditions are held out, never individual shots from a condition the model has seen.
-- Configuration is fixed before results. Every comparison uses ≥6 seeds and a paired test across held-out units.
+- Configuration is fixed before results. Every comparison uses ≥6 seeds and is paired across held-out units; p-values
+  are reported only where those units are independent.
 - Missing measurements stay missing and are masked out of the loss, never imputed.
 - Negative and null results are reported. For example, on one USDA dataset our model was *worse* on
   ordinary held-out foods; that result shaped the next experiments.
